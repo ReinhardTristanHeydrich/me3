@@ -1358,7 +1358,7 @@ dependencies = [
 
 [[package]]
 name = "me3-cli"
-version = "0.6.0"
+version = "0.7.0-prerelease"
 dependencies = [
  "chrono",
  "clap",
@@ -1387,7 +1387,7 @@ dependencies = [
 
 [[package]]
 name = "me3-env"
-version = "0.6.0"
+version = "0.7.0-prerelease"
 dependencies = [
  "serde",
  "serde_json",
@@ -1395,7 +1395,7 @@ dependencies = [
 
 [[package]]
 name = "me3-launcher"
-version = "0.6.0"
+version = "0.7.0-prerelease"
 dependencies = [
  "crash-context",
  "dll-syringe",
@@ -1413,7 +1413,7 @@ dependencies = [
 
 [[package]]
 name = "me3-launcher-attach-protocol"
-version = "0.6.0"
+version = "0.7.0-prerelease"
 dependencies = [
  "bincode",
  "eyre",
@@ -1424,7 +1424,7 @@ dependencies = [
 
 [[package]]
 name = "me3-mod-host"
-version = "0.6.0"
+version = "0.7.0-prerelease"
 dependencies = [
  "color-eyre",
  "crash-handler",
@@ -1447,7 +1447,7 @@ dependencies = [
 
 [[package]]
 name = "me3-mod-host-assets"
-version = "0.6.0"
+version = "0.7.0-prerelease"
 dependencies = [
  "cxx-stl",
  "from-singleton",
@@ -1463,7 +1463,7 @@ dependencies = [
 
 [[package]]
 name = "me3-mod-protocol"
-version = "0.6.0"
+version = "0.7.0-prerelease"
 dependencies = [
  "expect-test",
  "schemars",
@@ -1476,7 +1476,7 @@ dependencies = [
 
 [[package]]
 name = "me3_telemetry"
-version = "0.6.0"
+version = "0.7.0-prerelease"
 dependencies = [
  "color-eyre",
  "eyre",
