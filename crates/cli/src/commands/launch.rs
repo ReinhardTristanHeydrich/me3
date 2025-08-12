@@ -68,6 +68,14 @@ pub struct GameOptions {
     #[clap(long("show-logos"), default_missing_value = "true", num_args=0..=1, value_parser = invert_bool())]
     pub(crate) skip_logos: Option<bool>,
 
+    /// Don't block the game from connecting to the multiplayer server?
+    #[clap(long("online"), default_missing_value = "true", num_args=0..=1, value_parser = invert_bool())]
+    pub(crate) start_offline: Option<bool>,
+
+    /// Try to neutralize Arxan code protection to improve mod stability?
+    #[clap(long("dearxan"), default_missing_value = "true", num_args=0..=1)]
+    pub(crate) dearxan: Option<bool>,
+
     /// Skip initializing Steam within the launcher?
     #[clap(long("skip-steam-init"), default_missing_value = "true", num_args=0..=1)]
     pub(crate) skip_steam_init: Option<bool>,
@@ -87,8 +95,10 @@ impl GameOptions {
         Self {
             boot_boost: other.boot_boost.or(self.boot_boost),
             skip_logos: other.skip_logos.or(self.skip_logos),
-            exe: other.exe.or(self.exe),
+            start_offline: other.start_offline.or(self.start_offline),
+            dearxan: other.dearxan.or(self.dearxan),
             skip_steam_init: other.skip_steam_init.or(self.skip_steam_init),
+            exe: other.exe.or(self.exe),
         }
     }
 }
@@ -268,6 +278,8 @@ pub fn generate_attach_config(
         suspend: suspend_on_attach,
         boot_boost: opts.boot_boost.unwrap_or(true),
         skip_logos: opts.skip_logos.unwrap_or(true),
+        start_offline: opts.start_offline.unwrap_or(true),
+        dearxan: opts.dearxan.unwrap_or(false),
         skip_steam_init: opts.skip_steam_init.unwrap_or(false),
     })
 }
@@ -502,6 +514,8 @@ mod tests {
             GameOptions {
                 boot_boost: None,
                 skip_logos: None,
+                start_offline: None,
+                dearxan: None,
                 skip_steam_init: None,
                 exe: None,
             },
@@ -517,6 +531,8 @@ mod tests {
             "er",
             "--no-boot-boost",
             "--show-logos",
+            "--online",
+            "--dearxan",
             "--skip-steam-init",
         ]);
 
@@ -529,6 +545,8 @@ mod tests {
             GameOptions {
                 boot_boost: Some(false),
                 skip_logos: Some(false),
+                start_offline: Some(false),
+                dearxan: Some(true),
                 skip_steam_init: Some(true),
                 exe: None,
             },
@@ -544,6 +562,8 @@ mod tests {
             "er",
             "--no-boot-boost=false",
             "--show-logos=false",
+            "--online=false",
+            "--dearxan=false",
             "--skip-steam-init=false",
         ]);
 
@@ -556,6 +576,8 @@ mod tests {
             GameOptions {
                 boot_boost: Some(true),
                 skip_logos: Some(true),
+                start_offline: Some(true),
+                dearxan: Some(false),
                 skip_steam_init: Some(false),
                 exe: None,
             },
@@ -571,6 +593,8 @@ mod tests {
             "er",
             "--no-boot-boost=true",
             "--show-logos=true",
+            "--online=true",
+            "--dearxan=true",
             "--skip-steam-init=true",
         ]);
 
@@ -583,6 +607,8 @@ mod tests {
             GameOptions {
                 boot_boost: Some(false),
                 skip_logos: Some(false),
+                start_offline: Some(false),
+                dearxan: Some(true),
                 skip_steam_init: Some(true),
                 exe: None,
             },

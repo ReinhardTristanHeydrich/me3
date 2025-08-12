@@ -26,6 +26,18 @@ pub fn info(config: Config) -> color_eyre::Result<()> {
                 builder.property("Boot Boost", boot_boost);
             }
 
+            if let Some(skip_logos) = config.skip_logos {
+                builder.property("Skip startup logos?", skip_logos);
+            }
+
+            if let Some(start_offline) = config.start_offline {
+                builder.property("Block multiplayer server access", start_offline);
+            }
+
+            if let Some(dearxan) = config.dearxan {
+                builder.property("Neutralize Arxan code protection", dearxan);
+            }
+
             if let Some(skip_steam_init) = config.skip_steam_init {
                 builder.property("Skip Steam init?", format_status(skip_steam_init));
             }

@@ -36,6 +36,12 @@ pub struct AttachConfig {
     /// Skip the intro logos shown on every game launch?
     pub skip_logos: bool,
 
+    /// Block multiplayer server access?
+    pub start_offline: bool,
+
+    /// Try to neutralize Arxan code protection to improve mod stability?
+    pub dearxan: bool,
+
     /// Should we avoid checking if Steam is running as part of pre-launch checks?
     pub skip_steam_init: bool,
 }
