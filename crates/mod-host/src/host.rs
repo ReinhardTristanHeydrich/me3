@@ -127,13 +127,13 @@ impl ModHost {
 }
 
 pub fn dearxan(attach_config: &AttachConfig) {
-    if !attach_config.dearxan && attach_config.game != Game::DarkSouls3 {
+    if !attach_config.disable_arxan && attach_config.game != Game::DarkSouls3 {
         return;
     }
 
     info!(
         "game" = %attach_config.game,
-        "dearxan" = attach_config.dearxan,
+        "disable_arxan" = attach_config.disable_arxan,
         "will attempt to disable Arxan code protection",
     );
 

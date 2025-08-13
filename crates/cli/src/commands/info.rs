@@ -30,12 +30,8 @@ pub fn info(config: Config) -> color_eyre::Result<()> {
                 builder.property("Skip startup logos?", skip_logos);
             }
 
-            if let Some(start_offline) = config.start_offline {
-                builder.property("Block multiplayer server access", start_offline);
-            }
-
-            if let Some(dearxan) = config.dearxan {
-                builder.property("Neutralize Arxan code protection", dearxan);
+            if let Some(disable_arxan) = config.disable_arxan {
+                builder.property("Neutralize Arxan code protection", disable_arxan);
             }
 
             if let Some(skip_steam_init) = config.skip_steam_init {

@@ -101,7 +101,7 @@ fn on_attach(request: AttachRequest) -> AttachResult {
 
         game_properties::attach_override(attach_config.clone(), exe)?;
 
-        if attach_config.start_offline {
+        if !attach_config.start_online {
             game_properties::start_offline();
         }
 
